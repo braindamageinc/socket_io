@@ -1,0 +1,13 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="/jquery/jquery.js"></script>
+
+<script>
+  var socket = io.connect('http://socket_io_test.braindamageinc.c9.io/');
+  socket.on('news', function (data) {
+    console.log(data);
+    
+    window.document.write("news "  + data.hello);
+    
+    socket.emit('my other event', { my: 'data' });
+  });
+</script>
